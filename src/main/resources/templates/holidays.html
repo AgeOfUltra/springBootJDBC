@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Holidays</title>
+</head>
+<body>
+    <h2>List of the Holidays!</h2>
+    <h3 th:if="${festival} == true">FESTIVAL LIST</h3>
+    <table th:if="${festival}== true">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="festival : ${FESTIVAL}">
+            <td th:text="${festival.day}">
+            </td>
+            <td th:text="${festival.reason}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3 th:if="${federal} == true">FEDERAL LIST</h3>
+    <table th:if="${federal}== true">
+        <thead>
+        <tr>
+            <th>Day</th>
+            <th>Reason</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="federal : ${FEDERAL}">
+            <td th:text="${federal.day}">
+            </td>
+            <td th:text="${federal.reason}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>

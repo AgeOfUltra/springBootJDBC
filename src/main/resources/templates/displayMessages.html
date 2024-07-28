@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Messages</title>
+</head>
+<body>
+    <H1>Table of User Contact and their Messages!</H1>
+    <TABLE>
+        <thead>
+            <tr>
+                <td th:scope="col">
+                    Name
+                </td>
+                <td th:scope="col">
+                    Phone Number
+                </td>
+                <td th:scope="col">
+                    Message
+                </td>
+                <td th:scope="col">
+
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="mesg : ${contactList}">
+                <td th:text="${mesg.name}"></td>
+                <td th:text="${mesg.mobile}"></td>
+                <td th:text="${mesg.message}"></td>
+<!--                <td> <a th:href="@{/closeMessage(id=${mesg.contactId})}">CLOSE</a></td>--><!-- It is okay with if we are using @RequestParam annotation-->
+                <td> <a th:href="@{'/closeMessage/' + ${mesg.contactId}}">CLOSE</a></td> <!-- if we are using rest api like url then we have to use the static url rather than dynamic url (it is okay for @PathVariable annotation)-->
+            </tr>
+        </tbody>
+    </TABLE>
+<footer>
+    <p><a th:href="@{/dashboard}">Back</a></p>
+</footer>
+</body>
+</html>

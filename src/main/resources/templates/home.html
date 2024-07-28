@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+
+<p sec:authorize="isAnonymous()">Click <a th:href="@{/hello}">Here</a> to see a greeting.</p>
+<p sec:authorize="isAnonymous()">Click here for Login<a th:href="@{/login}">Login</a></p>
+<p sec:authorize="isAuthenticated()">Click here for to see your <a th:href="@{/dashboard}">dashboard</a></p>
+<p sec:authorize="isAnonymous()">Click to see  <a th:href="@{/holidays/all}">Holidays</a></p>
+<p sec:authorize="isAnonymous()">Click to contact  <a th:href="@{/message}">Admin</a></p>
+</body>
+</html>
