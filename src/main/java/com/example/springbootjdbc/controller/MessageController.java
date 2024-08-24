@@ -21,8 +21,8 @@ import java.util.List;
 public class MessageController {
     @Autowired
     private ContactService service;
-    @Autowired
-    private ContactService contactService;
+//    @Autowired
+//    private ContactService contactService;
 
 
     @RequestMapping("/message")
@@ -50,7 +50,7 @@ public class MessageController {
     @RequestMapping("/closeMessage/{id}")
     public String closeMessageAction(@PathVariable(name = "id") int id, Authentication authentication){
         System.out.println(id);
-        boolean res = contactService.changeTicketStatus(id,authentication.getName());
+        boolean res = service.changeTicketStatus(id,authentication.getName());
         System.out.println(res ? "success" : "fail");
         return  "redirect:/displayMessages";
     }
